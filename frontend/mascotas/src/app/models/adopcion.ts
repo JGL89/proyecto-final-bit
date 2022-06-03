@@ -1,4 +1,4 @@
-export class adopcion{
+export class Adopcion {
     _id?: number;
     nombre: string;
     especie: string;
@@ -9,5 +9,4 @@ export class adopcion{
         this.especie = especie;
         this.genero = genero;
     }
-
 }

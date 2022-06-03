@@ -1,19 +1,21 @@
 const express = require('express');
 const conectarDB = require('./config/db');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const adopcionesRouter = require('/routes/adopciones');
+const cors = require("cors");
 
 
 // Creamos el servidor
 const app = express();
-const port = 4000;
 
-app.use('/api/adopciones', adopcionesRouter);
 
 // Conectamos a la BD
 conectarDB();
+app.use(cors())
 
-app.listen(4000, () => {
+app.use(express.json());
+
+//app.use('/api/adopciones', require('./routes/adopciones'));
+
+
+app.listen(4300, () => {
     console.log('El servidor esta corriendo perfectamente')
 });

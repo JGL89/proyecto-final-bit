@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 //components
 import { AppComponent } from './app.component';
@@ -16,16 +17,16 @@ import { ListarAdopcionesComponent } from './components/listar-adopciones/listar
   declarations: [
     AppComponent,
     CrearAdopcionComponent,
-    ListarAdopcionesComponent
+    ListarAdopcionesComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
-
-
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

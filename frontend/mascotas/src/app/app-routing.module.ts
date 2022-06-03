@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrearAdopcionComponent } from './components/crear-adopcion/crear-adopcion.component';
 
-//components
+
 import { ListarAdopcionesComponent } from './components/listar-adopciones/listar-adopciones.component';
 
 const routes: Routes = [
