@@ -9,10 +9,30 @@ import { AdopcionService } from 'src/app/services/adopcion.service';
   styleUrls: ['./listar-adopciones.component.css']
 })
 export class ListarAdopcionesComponent implements OnInit {
+  listAdopciones: Adopcion[] = [];
 
-  constructor() { }
+  constructor(private _adopcionService: AdopcionService,
+    private toastr: ToastrService) { }
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+this.obtenerAdopciones();
+}
+
+obtenerAdopciones() {
+  this._adopcionService.getAdopciones().subscribe(data => {
+    console.log(data);
+    this.listAdopciones = data;
+  }, error => {
+    console.log(error);
+  })
+}
+eliminarAdopcion(id: any) {
+  this._adopcionService.eliminarAdopcion(id).subscribe(data => {
+    this.toastr.error('La adopcion fue eliminada con exito' ,'Adopcion Eliminada');
+    this.obtenerAdopciones();
+  }, error => {
+    console.log(error);
+  })
+}
 
 }

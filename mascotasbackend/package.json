@@ -1,20 +1,21 @@
 {
-  "name": "adopciones",
+  "name": "mascotasbackend",
   "version": "1.0.0",
-  "description": "Adopciones API",
-  "main": "index.js",
+  "description": "Api Restful Mascotas",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon ."
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
-  "author": "Juliana GL dev",
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.16"
-  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongoose": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
