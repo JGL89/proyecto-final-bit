@@ -20,7 +20,7 @@ export class CrearAdopcionComponent implements OnInit {
       private _adopcionService: AdopcionService,
       private aRouter: ActivatedRoute) {
         this.adopcionForm = this.fb.group({
-          nombre: ['', Validators.required],
+      nombre: ['', Validators.required],
       especie: ['', Validators.required],
       genero: ['', Validators.required],  
     })
@@ -41,15 +41,7 @@ export class CrearAdopcionComponent implements OnInit {
     }
 
     console.log(ADOPCION);
-    this._adopcionService.guardarAdopcion(ADOPCION).subscribe(data => {
-      this.toastr.success('La adopcion fue registrada con exito!', 'Adopcion Registrada!');
       this.router.navigate(['/']);
-    }, error => {
-      console.log(error);
-      this.adopcionForm.reset();
-    })
-
-  
   }
 
   esEditar() {
