@@ -41,7 +41,13 @@ export class CrearAdopcionComponent implements OnInit {
     }
 
     console.log(ADOPCION);
+    this._adopcionService.guardarAdopcion(ADOPCION).subscribe(data => {
+      this.toastr.success('La adopción fue registrada con éxito!', 'Adopción Registrada!');
       this.router.navigate(['/']);
+    }, error => {
+      console.log(error);
+      this.adopcionForm.reset();
+    })
   }
 
   esEditar() {
@@ -57,6 +63,5 @@ export class CrearAdopcionComponent implements OnInit {
       })
     }
   }
-
 }
 

@@ -3,8 +3,8 @@
       <div class="col-lg-8 offset-lg-2">
           <div class="card">
               <div class="card-body text-center">
-                  <span class="titulo">Listado de Adopciones</span>
-                  <button class="btn btn-success float-end" routerLink="/crear-adopcion">Nuevo</button>
+                  <span class="titulo">LISTADO DE ADOPCIONES</span>
+                  <button class="btn btn-success float-end" routerLink="/crear-adopcion">NUEVO</button>
                   <table class="table table-striped mt-4">
                       <thead>
                         <tr>
@@ -15,31 +15,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th>Coquito</th>
-                          <td>Canina</td>
-                          <td>Macho</td>
+                        <tr *ngFor="let adopcion of listAdopciones">
+                          <td>{{ adopcion.nombre }}</td>
+                          <td>{{ adopcion.especie }}</td>
+                          <td>{{ adopcion.genero }}</td>
                           <td>
-                            <i class="fas fa-edit text-primary"></i>
-                            <i class="fas fa-trash text-danger"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th>Perla</th>
-                          <td>Felina</td>
-                          <td>Hembra</td>
-                          <td>
-                            <i class="fas fa-edit text-primary"></i>
-                            <i class="fas fa-trash text-danger"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th>Sparkie</th>
-                          <td>Canina</td>
-                          <td>Macho</td>
-                          <td>
-                            <i class="fas fa-edit text-primary"></i>
-                            <i class="fas fa-trash text-danger"></i>
+                              <i [routerLink]="['/editar-adopcion', adopcion._id]" class="fas fa-edit text-primary"></i>
+                              <i (click)="eliminarAdopcion(adopcion._id)" class="fas fa-trash text-danger"></i>
                           </td>
                         </tr>
                       </tbody>
