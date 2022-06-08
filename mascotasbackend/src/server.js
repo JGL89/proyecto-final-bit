@@ -5,13 +5,13 @@ const adopcionesRouter = require('./routes/adopciones');
 const cors = require("cors");
 
 
-
 const server = express();
-const port = 4200;
+const port = 4100;
+server.use(cors())
 
 server.use(express.json());
 server.use('/api', adopcionesRouter);
-server.use(cors())
+
 
 dotenv.config();
 

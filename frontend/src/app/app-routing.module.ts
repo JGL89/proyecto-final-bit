@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: '', component: ListarAdopcionesComponent },
   { path: 'crear-adopcion', component: CrearAdopcionComponent},
   { path: 'editar-adopcion/:id', component: CrearAdopcionComponent},
-  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

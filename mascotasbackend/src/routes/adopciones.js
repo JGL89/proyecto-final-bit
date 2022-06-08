@@ -21,28 +21,31 @@ const adopcionSchema = require('../models/adopciones');
     .catch((err) => response.json({ failured: err }));
   });
 
-  router.get('/adopciones', (request, response) => {
+  router.get('/adopciones/:id', (request, response) => {
+    console.log(request.params)
     //response.send('Leer una adopcion especifica');
     const { id } = request.params;
+    console.log(id)
     adopcionSchema
       .findById(id)
       .then((data) => response.json({ success: data }))
       .catch((err) => response.json({ failured: err }));
   });
 
-  router.put('/adopciones', (request, response) => {
+  router.put('/adopciones/:id', (request, response) => {
     //response.send('Actualizar una adopcion');
   const { id } = request.params;
-  const todo = request.body;
+  const adopcion = request.body;
   adopcionSchema
     .updateOne({ _id: id }, { $set: adopcion})
     .then((data) => response.json({ success: data }))
     .catch((err) => response.json({ failured: err }));
   });
 
-  router.delete('/adopciones', (request, response) => {
+  router.delete('/adopciones/:id', (request, response) => {
     //response.send('Eliminar una adopcion');
     const { id } = request.params;
+    console.log(id)
   adopcionSchema
     .deleteOne({ _id: id })
     .then((data) => response.json({ success: data }))

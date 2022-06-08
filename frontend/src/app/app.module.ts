@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -34,22 +35,22 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule,
     RouterModule.forRoot([
+      { path: 'listar-adopciones', component: ListarAdopcionesComponent },
+      { path: 'crear-adopcion', component: CrearAdopcionComponent },
       { path: 'home', component: HomeComponent },
       { path: 'private', component: PrivateComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: ListarAdopcionesComponent },
-      { path: 'register', component: CrearAdopcionComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent },
     ]),
-  FormsModule,
-  AppRoutingModule,
-  ReactiveFormsModule,
-  BrowserAnimationsModule,
-  ToastrModule.forRoot(),
-  HttpClientModule
+  FormsModule,  
 ],
   providers: [],
   bootstrap: [AppComponent]
