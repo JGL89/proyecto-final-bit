@@ -5,7 +5,7 @@
               <div class="card-body text-center">
                   <span class="titulo">LISTADO DE ADOPCIONES</span>
                   <button class="btn btn-success float-end" routerLink="/crear-adopcion">NUEVO</button>
-                  <table class="table table-striped mt-4">
+                  <table *ngIf="listAdopciones.length > 0" class="table table-striped mt-4">
                       <thead>
                         <tr>
                           <th scope="col">Nombre</th>

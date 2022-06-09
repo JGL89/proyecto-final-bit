@@ -21,7 +21,7 @@ this.obtenerAdopciones();
 obtenerAdopciones() {
   this._adopcionService.getAdopciones().subscribe(data => {
     console.log(data);
-    this.listAdopciones = data;
+    this.listAdopciones = data.success;
   }, error => {
     console.log(error);
   })
