@@ -20,17 +20,29 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Registrarse</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+            <a class="nav-link" routerLink="/listar-adopciones">Lista de adopciones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/private">Privado</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/listar-adopciones">Lista de adopciones</a>
-          </li>
+          <ng-container *ngIf="authService.isAuth(); else notLogged">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="cursor: pointer"
+                (click)="loginService.logoutUser()"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ng-container>
+          <ng-template #notLogged>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register">Registrarse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+            </li>
+          </ng-template>
         </ul>
       </div>
     </div>

@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
 
-import { AuthService } from './auth.service';
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  constructor() {}
 
-describe('AuthService', () => {
-  let service: AuthService;
+  isAuth(): boolean {
+    return !!localStorage.getItem('token');
+  }
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  gettoken() {
+    return localStorage.getItem('token');
+  }
+}
