@@ -22,6 +22,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
       { path: 'listar-adopciones', component: ListarAdopcionesComponent },
       { path: 'crear-adopcion', component: CrearAdopcionComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'private', component: PrivateComponent },
+      {path: 'private', component: PrivateComponent,canActivate: [AuthGuard],},
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -53,7 +55,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ]),
   FormsModule,  
 ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

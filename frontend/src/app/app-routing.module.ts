@@ -10,12 +10,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PrivateComponent } from './components/private/private.component';
 import { RegisterComponent } from './components/register/register.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
   { path: '', component: ListarAdopcionesComponent },
   { path: 'crear-adopcion', component: CrearAdopcionComponent},
   { path: 'editar-adopcion/:id', component: CrearAdopcionComponent},
   { path: 'home', component: HomeComponent },
-  { path: 'private', component: PrivateComponent },
+  {path: 'private', component: PrivateComponent,canActivate: [AuthGuard],},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,6 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule { }
