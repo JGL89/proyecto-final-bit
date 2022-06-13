@@ -1,33 +1,182 @@
-<div class="container mt-5">
-  <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-          <div class="card">
-              <div class="card-body text-center">
-                  <span class="titulo">LISTADO DE ADOPCIONES</span>
-                  <button class="btn btn-success float-end" routerLink="/crear-adopcion">NUEVO</button>
-                  <table *ngIf="listAdopciones.length > 0" class="table table-striped mt-4">
-                      <thead>
-                        <tr>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Especie</th>
-                          <th scope="col">Género</th>
-                          <th scope="col"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let adopcion of listAdopciones">
-                          <td>{{ adopcion.nombre }}</td>
-                          <td>{{ adopcion.especie }}</td>
-                          <td>{{ adopcion.genero }}</td>
-                          <td>
-                              <i [routerLink]="['/editar-adopcion', adopcion._id]" class="fas fa-edit text-primary"></i>
-                              <i (click)="eliminarAdopcion(adopcion._id)" class="fas fa-trash text-danger"></i>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Nómadas</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="" rel="stylesheet" />
+</head>
+    <body>
+      <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- ADOPCIÓN image-->
+                        <img class="card-img-top" src="assets/img/Luna.jpg" alt="Luna" />
+                        <!-- Details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Nombre -->
+                                <h5 class="fw-bolder">Luna</h5>
+                                <!-- Edad-->
+                                2 años
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Animal image-->
+                        <img class="card-img-top" src="assets/img/Gaston.jpg" alt="Gaston" />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Gaston</h5>
+                                <!-- Edad-->
+                                6 meses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Animal image-->
+                        <img class="card-img-top" src="assets/img/Pelusa.jpg" alt="Pelusa" />
+                        <!-- Animal details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Animal name-->
+                                <h5 class="fw-bolder">Pelusa</h5>
+                                <!-- Edad-->
+                                4 años
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Animal image-->
+                        <img class="card-img-top" src="assets/img/Sol.jpg" alt="Sol" />
+                        <!-- Animal details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Animal name-->
+                                <h5 class="fw-bolder">Sol</h5>
+                                <!-- Edad-->
+                                7 años
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Animal image-->
+                        <img class="card-img-top" src="assets/img/Candy.jpg" alt="Candy" />
+                        <!-- Animal details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Animal name-->
+                                <h5 class="fw-bolder">Candy</h5>
+                                <!-- Edad-->
+                                3 años
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Animal image-->
+                        <img class="card-img-top" src="assets/img/Lindo.jpg" alt="Lindo" />
+                        <!-- Animal details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Animal name-->
+                                <h5 class="fw-bolder">Lindo</h5>
+                                <!-- Edad-->
+                               1 año
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Animal image-->
+                        <img class="card-img-top" src="assets/img/Lisa.jpg" alt="Lisa" />
+                        <!-- Animal details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Animal name-->
+                                <h5 class="fw-bolder">Lisa</h5>
+                                <!-- Edad-->
+                                $3 meses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Animal image-->
+                        <img class="card-img-top" src="assets/img/Peluche.jpg" alt="Peluche" />
+                        <!-- Animal details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Animal name-->
+                                <h5 class="fw-bolder">Peluche</h5>
+                                <!-- Product price-->
+                                2 años
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <div class="card">
+                  <div class="card-body text-center">
+                      <span class="titulo">LISTADO DE ADOPCIONES</span>
+                      <button class="btn btn-success float-end" routerLink="/crear-adopcion">NUEVO</button>
+                      <table *ngIf="listAdopciones.length > 0" class="table table-striped mt-4">
+                          <thead>
+                            <tr>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Especie</th>
+                              <th scope="col">Género</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let adopcion of listAdopciones">
+                              <td>{{ adopcion.nombre }}</td>
+                              <td>{{ adopcion.especie }}</td>
+                              <td>{{ adopcion.genero }}</td>
+                              <td>
+                                  <i [routerLink]="['/editar-adopcion', adopcion._id]" class="fas fa-edit text-primary"></i>
+                                  <i (click)="eliminarAdopcion(adopcion._id)" class="fas fa-trash text-danger"></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
               </div>
           </div>
       </div>
-  </div>
-</div>
+    </div>
+    <!-- Footer-->
+    <footer class="py-5 bg-blue">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Nomadas 2022</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
